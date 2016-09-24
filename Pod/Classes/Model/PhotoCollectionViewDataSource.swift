@@ -26,8 +26,8 @@ import Photos
 /**
 Gives UICollectionViewDataSource functionality with a given data source and cell factory
 */
-final class PhotoCollectionViewDataSource : NSObject, UICollectionViewDataSource {
-    var selections = [PHAsset]()
+public class PhotoCollectionViewDataSource : NSObject, UICollectionViewDataSource {
+    public var selections = [PHAsset]()
     var fetchResult: PHFetchResult
     
     private let photoCellIdentifier = "photoCellIdentifier"
@@ -53,15 +53,15 @@ final class PhotoCollectionViewDataSource : NSObject, UICollectionViewDataSource
         super.init()
     }
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    public func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fetchResult.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         UIView.setAnimationsEnabled(false)
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(photoCellIdentifier, forIndexPath: indexPath) as! PhotoCell
         cell.accessibilityIdentifier = "photo_cell_\(indexPath.item)"

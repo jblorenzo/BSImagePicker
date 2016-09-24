@@ -25,10 +25,10 @@ import Photos
 import BSGridCollectionViewLayout
 
 public class PhotosViewController : UICollectionViewController {    
-    var selectionClosure: ((asset: PHAsset) -> Void)?
-    var deselectionClosure: ((asset: PHAsset) -> Void)?
-    var cancelClosure: ((assets: [PHAsset]) -> Void)?
-    var finishClosure: ((assets: [PHAsset]) -> Void)?
+    public var selectionClosure: ((asset: PHAsset) -> Void)?
+    public var deselectionClosure: ((asset: PHAsset) -> Void)?
+    public var cancelClosure: ((assets: [PHAsset]) -> Void)?
+    public var finishClosure: ((assets: [PHAsset]) -> Void)?
     
     var doneBarButton: UIBarButtonItem?
     var cancelBarButton: UIBarButtonItem?
@@ -37,7 +37,7 @@ public class PhotosViewController : UICollectionViewController {
     let expandAnimator = ZoomAnimator()
     let shrinkAnimator = ZoomAnimator()
     
-    private var photosDataSource: PhotoCollectionViewDataSource?
+    public var photosDataSource: PhotoCollectionViewDataSource?
     private var albumsDataSource: AlbumTableViewDataSource
     private let cameraDataSource: CameraCollectionViewDataSource
     private var composedDataSource: ComposedCollectionViewDataSource?
